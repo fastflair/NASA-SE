@@ -5,7 +5,7 @@ pytorch-transformers
 sklearn
 seqeval
 sklearn
-tensorflow-gpu
+tensorflow
 pandas
 tqdm
 emoji
