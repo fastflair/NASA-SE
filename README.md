@@ -29,9 +29,42 @@ September 2020.
 ```
 
 ### Note
-Datasets used in the project are availale in the [datafolder](https://github.com/jitinkrishnan/NASA-SE/blob/master/se_data). 
+Datasets used in the project are available in the [datafolder](https://github.com/jitinkrishnan/NASA-SE/blob/master/se_data). 
 
 ```pip install -r requirements.txt``` to install necessary packages if needed.
+
+### Installation
+
+Update pip, setuptools, and wheel: **pip install -U pip setuptools wheel**
+
+Requires Java:
+
+- Ubuntu:
+  - **sudo apt update**
+  - **sudo apt install default-jdk**
+- Windows:
+  - **conda install -c anaconda openjdk**
+
+Requires libenchant library: 
+
+- Ubuntu:
+  - **sudo apt-get install -y libenchant-dev**
+- Windows:
+  - **pip install pyenchant**
+
+NLP Models:
+
+1. Download Uncased [BERT model - 1.2GB](https://github.com/google-research/bert) to NASA-SE folder: https://storage.googleapis.com/bert_models/2019_05_30/wwm_uncased_L-24_H-1024_A-16.zip Rename the bert folder to bert_models. 
+2. Place all extracted files in folder NASA-SE/stanford_jars 
+   1. Download Stanford Parser 3.9.2: https://nlp.stanford.edu/software/stanford-parser-full-2018-10-17.zip (stanford-parser-3.9.2-models.jar, stanford-parser.jar) 
+   2. Download Parser 3.9.2 english model: https://nlp.stanford.edu/software/stanford-english-corenlp-2018-10-05-models.jar 
+   3. Download Stanford POS Tagger: https://nlp.stanford.edu/software/stanford-postagger-2018-10-16.zip (english-bidirectional-distsim.tagger, stanford-postagger-3.9.2.jar)
+3. Import NLTK models
+   1. import nltk 
+   2. nltk.download('punkt') 
+   3. nltk.download('stopwords') 
+   4. nltk.download('wordnet') 
+   5. nltk.download('averaged_perceptron_tagger')
 
 ### 1. Concept Recognition (CR)
 
