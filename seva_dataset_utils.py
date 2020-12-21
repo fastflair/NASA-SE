@@ -11,7 +11,7 @@ d = enchant.Dict("en_US")
 # value: full form
 def create_acronym_dict(fname):
     d = {}
-    f = open(fname)
+    f = open(fname, encoding="utf8")
     lines = f.readlines()
     f.close()
     for line in lines:
@@ -28,7 +28,7 @@ def create_acronym_dict(fname):
 # value: accronym
 def create_acronym_dict_inverse(fname):
     d = {}
-    f = open(fname)
+    f = open(fname, encoding="utf8")
     lines = f.readlines()
     f.close()
     for line in lines:
@@ -45,7 +45,7 @@ def create_acronym_dict_inverse(fname):
 # value: description
 def create_definition_dict(fname):
     d = {}
-    f = open(fname)
+    f = open(fname, encoding="utf8")
     lines = f.readlines()
     f.close()
     for line in lines:
@@ -77,7 +77,7 @@ def get_def_combos(term, accro_dict):
 # value: full form
 def fix_def(accr_fname, fname):
     accro_dict = create_acronym_dict(accr_fname)
-    f = open(fname)
+    f = open(fname, encoding="utf8")
     lines = f.readlines()
     f.close()
     
@@ -139,7 +139,7 @@ def categorize_def_into_numwords(accr_location, definition_location):
 # output: a new file
 def create_file_from_buckets_4_human_labelling(accr_location, definition_location, fname):
     res = categorize_def_into_numwords(accr_location, definition_location)
-    f = open(fname, 'w+')
+    f = open(fname, 'w+', encoding="utf8")
     keys = sorted(res.keys())
     for key in keys:
         f.write(str(key)+'\n')
@@ -154,7 +154,7 @@ def create_file_from_buckets_4_human_labelling(accr_location, definition_locatio
 # value: terms
 def read_annotated_keywords(fname):
     tag_dict = {}
-    f = open(fname)
+    f = open(fname, encoding="utf8")
     lines = f.readlines()
     f.close()
     for line in lines:
@@ -187,7 +187,7 @@ def read_annotated_keywords(fname):
 # value: tag
 def read_annotated_keywords_inverse(fname):
     tag_dict = {}
-    f = open(fname)
+    f = open(fname, encoding="utf8")
     lines = f.readlines()
     f.close()
     for line in lines:
@@ -203,7 +203,7 @@ def is_ascii(s):
 def update_vocab(location_of_vocab, *input_fname):
     text = ""
     for fname in input_fname:
-        f_read = open(fname)
+        f_read = open(fname, encoding="utf8")
         text += " " + f_read.read()
         f_read.close()
     new_words = nltk.word_tokenize(text)
@@ -211,7 +211,7 @@ def update_vocab(location_of_vocab, *input_fname):
     new_words = set(new_words)
     n = len(new_words)
 
-    f = open(location_of_vocab)
+    f = open(location_of_vocab, encoding="utf8")
     text = f.readlines()
     f.close()
     old_words = [w.strip() for w in text]
@@ -247,7 +247,7 @@ def update_vocab(location_of_vocab, *input_fname):
 
     assert(o_len == len(words))
 
-    f = open(location_of_vocab, 'w+')
+    f = open(location_of_vocab, 'w+', encoding="utf8")
     for word in words:
         f.write(word)
         f.write('\n')
